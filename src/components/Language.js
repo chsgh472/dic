@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import FormLabel from '@material-ui/core/FormLabel';
-import { Grid, Radio, RadioGroup, FormControlLabel} from '@material-ui/core';
+import {Grid, Radio, RadioGroup, FormControlLabel, Typography} from '@material-ui/core';
 
   class SearchLang extends Component {
     
@@ -13,29 +12,31 @@ import { Grid, Radio, RadioGroup, FormControlLabel} from '@material-ui/core';
 
         return (
             <div>
-
-                    <FormLabel>검색대상 언어</FormLabel>
-                        <Grid container spacing={2}>
-                            <RadioGroup aria-label="language" 
+                <Typography variant="h5" component="h2" color="primary">
+                    검색대상 언어
+                </Typography>
+                        <Grid container spacing={2} justify='space-around' style={{margin:10}}>
+                            <RadioGroup row
+                                        aria-label="language"
                                         name="language1" 
-                                        value={selectedLangValue} 
+                                        value={selectedLangValue}
                                         onChange={filterdLanguage}>
                                 <FormControlLabel 
-                                                  value="korean" 
-                                                  control={<Radio />} 
-                                                  label="Korean" />
+                                                  value="korean"
+                                                  control={<Radio color="primary"/>}
+                                                  label="한국어" />
                                 <FormControlLabel 
-                                                  value="english" 
-                                                  control={<Radio />} 
-                                                  label="English" />
+                                                  value="english"
+                                                  control={<Radio color="primary"/>}
+                                                  label="영어" />
                                 <FormControlLabel 
-                                                  value="china" 
-                                                  control={<Radio />} 
-                                                  label="China" />
+                                                  value="china"
+                                                  control={<Radio color="primary"/>}
+                                                  label="중국어" />
                                 <FormControlLabel 
-                                                  value="japanese" 
-                                                  control={<Radio />} 
-                                                  label="Japanese" />
+                                                  value="japanese"
+                                                  control={<Radio color="primary"/>}
+                                                  label="일본어" />
                             </RadioGroup>
                         </Grid>
             </div>
