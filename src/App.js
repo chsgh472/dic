@@ -354,7 +354,7 @@ class App extends Component {
                     </Card>
                   </Grid>
                   <Grid container xs={12} lg={8}>
-                              <Grid item xs={12} sm={6} lg={6} style={{padding:10}}>
+                              <Grid item xs={12} md={6} lg={6} style={{padding:10}}>
                                   <Card className={classes.root}>
                                       <CardContent>
                                   {this.state.wordInfo.map((data, index) => {
@@ -369,7 +369,7 @@ class App extends Component {
                               </Grid>
 
 
-                        <Grid item xs={12} sm={6} lg={6}  style={{padding:10}}>
+                        <Grid item xs={12} md={6} lg={6}  style={{padding:10}}>
                             <Card className={classes.root}>
                                 <CardContent>
                                     {this.state.wordInfo.map((data, index) => {
