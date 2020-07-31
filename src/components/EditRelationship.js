@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { FormLabel, TextField, Button, Grid, Typography} from '@material-ui/core';
-import AddBoxIcon from '@material-ui/icons/AddBox';
+import AddRelationshipDialogDialog from "./AddRelationshipDialog";
 
 export default class Relationship extends Component {
-
+    handleSubmit=(e)=>{
+        alert('수정완료')
+    }
     render() {
         const { insertRelation, datas } = this.props;
 
@@ -16,14 +18,7 @@ export default class Relationship extends Component {
                             </Typography>
                         </Grid>
                         <Grid item xs={6}>
-                            <Button style={{borderRadius:20, float:'right'}}
-                                variant="contained"
-                                color="primary"
-                                size="large"
-                                startIcon={<AddBoxIcon />}
-                            >
-                                용어관계 항목 추가
-                            </Button>
+                            <AddRelationshipDialogDialog />
                         </Grid>
                     <Grid container item xs={2} style={{textAlign:'center'}}>
                         {
@@ -31,7 +26,7 @@ export default class Relationship extends Component {
                                 console.log('relations data', data);
                                 return (
                                     <Grid item xs={12}>
-                                        <Typography variant="h5" component="h5" style={{margin:5}}>{Object.keys(data)[0]}</Typography>
+                                        <Typography variant="h6" component="h6" style={{padding:8}}>{Object.keys(data)[0]}</Typography>
                                     </Grid>
                                 )
                             })
@@ -42,7 +37,7 @@ export default class Relationship extends Component {
                                 datas.relations.map((data) => {
                                     console.log('relations data', data);
                                     return (
-                                        <Grid container item xs={12}>
+                                        <Grid container item spacing={2} style={{padding:8}}>
                                         <Grid item xs={12} lg={3}>
                                             <TextField id="out-lined-basic"
                                                        name={data[Object.keys(data)[0]] }
@@ -70,7 +65,7 @@ export default class Relationship extends Component {
                                                    fullWidth
                                         />
                                     </Grid>
-                                            <Grid item xs={12} lg={3}>
+                                    <Grid item xs={12} lg={3}>
                                         <TextField id="out-lined-basic"
                                                    name={data[Object.keys(data)[0]] }
                                                    value={data[Object.keys(data)[0]]}
@@ -78,13 +73,20 @@ export default class Relationship extends Component {
                                                    variant="outlined"
                                                    fullWidth
                                         />
-                                        </Grid>
+                                    </Grid>
                                 </Grid>
                                     )
                                 })
                             }
                     </Grid>
                 </Grid>
+                <Button style={{float:'right', width:80, height:40, margin:10}}
+                        variant="contained"
+                        color="primary"
+                        onClick={this.handleSubmit}
+                >
+                    <h3>수정</h3>
+                </Button>
             </div>
         );
     }

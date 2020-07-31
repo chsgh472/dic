@@ -54,11 +54,9 @@ class SearchBar extends Component {
 
     render() {
        const style={
-           height : '50px',
-           padding : '24px',
            justify : 'center',
        }
-       const { changeKeyword, searchBtnOnClick, keyword } = this.props; 
+       const { changeKeyword, searchBtnOnClick, keyword } = this.props;
 
        console.log('in the render searchLang', this.state.searchLang);
         const classes = this.props;
@@ -71,13 +69,13 @@ class SearchBar extends Component {
                 {/*           */}
                 {/*    </Grid> */}
                 {/*</Grid>*/}
-                     <Grid container alignItems="center" direction="row" justify="center" spacing={6} >
-                        <Grid item xs={4} container >
-                            <Typography>질의어 {this.state.searchLang}</Typography>
+                     <Grid container direction="row">
+                        <Grid item xs={3} container >
+                            <Typography variant="h6" component="h6">질의어{this.state.searchLang}</Typography>
                         </Grid>
-                        <Grid item xs={6} container alignItems="center" justify="center" >
+                        <Grid item xs={9} container alignItems="center">
                             <Grid item xs={20}>
-                                <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
+                                <FormControl className={clsx(classes.margin, classes.withoutLabel)}>
                                     <Input
                                         id="standard-adornment-search"
                                         value={keyword}
@@ -91,6 +89,7 @@ class SearchBar extends Component {
                                                             </IconButton>
                                                         </InputAdornment>
                                                      }
+                                        fullWidth
                                         inputProps={{'aria-label' : 'search'}}
                                         placeholder={"검색어를 입력해주세요"}
                                     />

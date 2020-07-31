@@ -8,7 +8,7 @@ import Relationship from './components/Relationship';
 import Relationship1 from './components/EditRelationship';
 import EditRelationship from './components/EditRelationship';
 import './App.css';
-import { Grid } from '@material-ui/core';
+import {Button, Grid} from '@material-ui/core';
 import NavBar from './components/basic/NavBar';
 import SearchBar from './components/basic/SearchBar';
 import Card from '@material-ui/core/Card';
@@ -16,6 +16,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from "@material-ui/core/Typography";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import AddBoxIcon from "@material-ui/icons/AddBox";
 
 const useStyles = makeStyles({
     root: {
@@ -25,12 +26,6 @@ const useStyles = makeStyles({
         display: 'inline-block',
         margin: '0 2px',
         transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
     },
 });
 
@@ -210,8 +205,7 @@ class App extends Component {
             ],
         }
     }
-    
-    
+
 
     handleInsertWordInfo = (e) => {
         const { wordInfo } = this.state;
@@ -305,14 +299,15 @@ class App extends Component {
                         }else {
                             return obj;
                         }
-                        
-                    }) 
+                    })
                     this.setState({ filterdDummyDatas : filterdData});
         //}
                 console.log('this.filterdDummyDatas', this.state.filterdDummyDatas)
 
     }
-
+    handleFake= (e)=>{
+        alert('힝 ~ 속았지!')
+    }
 
 
   render() {
@@ -329,20 +324,26 @@ class App extends Component {
             changeKeyword={this.handleChangeKeyword}
             searchBtnOnClick={this.handleFilterdDummyDatas}
             /> */}
-
-          <hr />
-
+            <div style={{width:'80%', margin:'auto', marginTop:'3%'}}>
               <Grid item xs={12} container>
-                 <Grid item xs={4}>
+                 <Grid item xs={12} lg={4} style={{padding:10}}>
                     <Card className={classes.root}>
                         <CardContent>
+                            <div style={{textAlign:'center', margin:50}}>
+                            <Button style={{width:250, height:60}}
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleFake}
+                            >
+                                <h2>전체단어보기</h2>
+                            </Button>
+                            </div>
                             <SearchBar
                                 keyword={this.state.keyword}
                                 changeKeyword={this.handleChangeKeyword}
                                 searchBtnOnClick={this.handleFilterdDummyDatas}/>
                              <SearchLang selectedLangValue={this.state.searchLang}
                                  filterdLanguage={this.handleFilterdLanguage}/>
-
 
                             <WordTable
                                   //data={this.state.keyword ? this.state.filterdDummyDatas : defaultDatas}
@@ -352,8 +353,8 @@ class App extends Component {
                         </CardContent>
                     </Card>
                   </Grid>
-                  <Grid container xs={8}>
-                              <Grid item xs={6}>
+                  <Grid container xs={12} lg={8}>
+                              <Grid item xs={12} sm={6} lg={6} style={{padding:10}}>
                                   <Card className={classes.root}>
                                       <CardContent>
                                   {this.state.wordInfo.map((data, index) => {
@@ -368,7 +369,7 @@ class App extends Component {
                               </Grid>
 
 
-                        <Grid item xs={6}>
+                        <Grid item xs={12} sm={6} lg={6}  style={{padding:10}}>
                             <Card className={classes.root}>
                                 <CardContent>
                                     {this.state.wordInfo.map((data, index) => {
@@ -381,7 +382,7 @@ class App extends Component {
                                 </CardContent>
                             </Card>
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} style={{padding:10}}>
                             <Card className={classes.root}>
                                 <CardContent>
                           {this.state.wordInfo.map((data, index) =>
@@ -396,6 +397,7 @@ class App extends Component {
                         </Grid>
                 </Grid>
           </Grid>
+            </div>
       </div>
     );
   }

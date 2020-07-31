@@ -24,7 +24,7 @@ export default class InsertWord extends Component {
                                     </Grid>
                             </Grid>
                             <Grid container spacing={2} alignItems="center">
-                                        <Grid item xs={3}>
+                                        <Grid item xs={3}  style={{textAlign:'center'}}>
                                             <Typography variant="h6" component="h6">
                                                 용어명
                                             </Typography>
@@ -36,29 +36,31 @@ export default class InsertWord extends Component {
                                                     value={data.name}
                                                     margin="dense"
                                                     variant="outlined"
+                                                    fullWidth
                                                     onChange={insertWordInfo}
                                             />
                                         </Grid>
                             </Grid>     
                             <Grid container spacing={2} alignItems="center" >
-                                        <Grid item xs={3}>
+                                        <Grid item xs={3}  style={{textAlign:'center'}}>
                                             <Typography variant="h6" component="h6">
                                                 범주
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={9}>
-                                            <TextField id="out-lined-basic" 
+                                            <TextField id="out-lined-basic"
                                                         placeholder="ex: 질병"
                                                         margin="dense"
                                                         name="category"
                                                         value={data.category}
+                                                        fullWidth
                                                         onChange={insertWordInfo}
                                                         variant="outlined" />
                                         </Grid>
                             </Grid>     
                         
                             <Grid container spacing={2} alignItems="center" >
-                                        <Grid item xs={3}>
+                                        <Grid item xs={3}  style={{textAlign:'center'}}>
                                             <Typography variant="h6" component="h6">
                                                 개체명
                                             </Typography>
@@ -69,6 +71,7 @@ export default class InsertWord extends Component {
                                                         name="entity"
                                                         value={data.entity}
                                                         onChange={insertWordInfo}
+                                                        fullWidth
                                                         margin="dense" 
                                                         variant="outlined" />
                                         </Grid>    

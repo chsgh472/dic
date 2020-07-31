@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import {FormLabel, TextField, Button, Typography} from '@material-ui/core';
 import AddBoxIcon from '@material-ui/icons/AddBox';
+import AddLanguageDialog from "./AddLanguageDialog";
 
 class InsertLang extends Component {
 
@@ -21,13 +22,7 @@ class InsertLang extends Component {
                             </Typography>
                         </Grid>
                         <Grid item xs={6}>
-                            <Button style={{borderRadius:20, float:'right'}}
-                                    variant="contained"
-                                    color="primary"
-                                    startIcon={<AddBoxIcon />}
-                            >
-                                대상언어추가
-                            </Button>
+                            <AddLanguageDialog />
                         </Grid>
                     </Grid>
                             {datas.languages.map((data, index) => {
@@ -42,8 +37,8 @@ class InsertLang extends Component {
                                         <Grid item xs={9}>
                                             <TextField id="out-lined-basic"
                                                         value={data[Object.keys(data)[0]]}
-                                                        name="english"
-                                                        onChange={insertLang} 
+                                                        onChange={insertLang}
+                                                        fullWidth
                                                         margin="dense" 
                                                         variant="outlined" />
                                         </Grid>
